@@ -11,3 +11,6 @@ class SubscriptionEstimate(Model):
 
     fields = ["id", "currency_code", "status", "next_billing_at", "shipping_address"]
 
+    sub_types = {
+        'shipping_address': ShippingAddress,
+    }

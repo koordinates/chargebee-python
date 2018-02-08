@@ -30,6 +30,14 @@ class Customer(Model):
     "unbilled_charges", "refundable_credits", "excess_payments", "balances", "meta_data", "deleted", \
     "registered_for_gst"]
 
+    sub_types = {
+        'billing_address': BillingAddress,
+        'referral_urls': ReferralUrl,
+        'contacts': Contact,
+        'payment_method': PaymentMethod,
+        'balances': Balance,
+    }
+
 
     @staticmethod
     def create(params=None, env=None, headers=None):

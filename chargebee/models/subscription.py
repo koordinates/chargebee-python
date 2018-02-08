@@ -27,6 +27,13 @@ class Subscription(Model):
     "base_currency_code", "addons", "coupon", "coupons", "shipping_address", "referral_info", "invoice_notes", \
     "meta_data", "deleted"]
 
+    sub_types = {
+        'addons': Addon,
+        'coupons': Coupon,
+        'shipping_address': ShippingAddress,
+        'referral_info': ReferralInfo,
+    }
+
 
     @staticmethod
     def create(params, env=None, headers=None):

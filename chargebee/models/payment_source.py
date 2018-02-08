@@ -21,6 +21,13 @@ class PaymentSource(Model):
     fields = ["id", "customer_id", "type", "reference_id", "status", "gateway", "gateway_account_id", \
     "ip_address", "issuing_country", "card", "bank_account", "amazon_payment", "paypal"]
 
+    sub_types = {
+      'card': Card,
+      'bank_account': BankAccount,
+      'amazon_payment': AmazonPayment,
+      'paypal': Paypal,
+    }
+
 
     @staticmethod
     def create_using_temp_token(params, env=None, headers=None):
