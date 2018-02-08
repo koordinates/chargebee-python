@@ -58,6 +58,23 @@ class Invoice(Model):
     "line_item_tiers", "linked_payments", "applied_credits", "adjustment_credit_notes", "issued_credit_notes", \
     "linked_orders", "notes", "shipping_address", "billing_address", "deleted"]
 
+    sub_types = {
+      'line_items': LineItem,
+      'discounts': Discount,
+      'line_item_discounts': LineItemDiscount,
+      'taxes': Tax,
+      'line_item_taxes': LineItemTax,
+      'line_item_tiers' : LineItemTier,
+      'linked_payments': LinkedPayment,
+      'applied_credits': AppliedCredit,
+      'adjustment_credit_notes': AdjustmentCreditNote,
+      'issued_credit_notes': IssuedCreditNote,
+      'linked_orders': LinkedOrder,
+      'notes': Note,
+      'shipping_address': ShippingAddress,
+      'billing_address': BillingAddress,
+    }
+
 
     @staticmethod
     def create(params, env=None, headers=None):
