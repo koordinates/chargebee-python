@@ -32,6 +32,16 @@ class CreditNote(Model):
     "sub_total", "round_off_amount", "line_items", "discounts", "line_item_discounts", "taxes", \
     "line_item_taxes", "linked_refunds", "allocations", "deleted"]
 
+    sub_types = {
+      'line_items': LineItem,
+      'discounts': Discount,
+      'line_item_discounts': LineItemDiscount,
+      'taxes': Tax,
+      'line_item_taxes': LineItemTax,
+      'linked_refunds': LinkedRefund,
+      'allocations': Allocation,
+    }
+
 
     @staticmethod
     def create(params, env=None, headers=None):

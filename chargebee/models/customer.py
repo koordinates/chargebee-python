@@ -6,6 +6,7 @@ from chargebee import APIError
 class Customer(Model):
     class BillingAddress(Model):
       fields = ["first_name", "last_name", "email", "company", "phone", "line1", "line2", "line3", "city", "state_code", "state", "country", "zip", "validation_status"]
+      repr_field = "zip"
       pass
     class ReferralUrl(Model):
       fields = ["external_customer_id", "referral_sharing_url", "created_at", "updated_at", "referral_campaign_id", "referral_account_id", "referral_external_campaign_id", "referral_system"]
@@ -28,6 +29,14 @@ class Customer(Model):
     "contacts", "payment_method", "invoice_notes", "preferred_currency_code", "promotional_credits", \
     "unbilled_charges", "refundable_credits", "excess_payments", "balances", "meta_data", "deleted", \
     "registered_for_gst"]
+
+    sub_types = {
+        'billing_address': BillingAddress,
+        'referral_urls': ReferralUrl,
+        'contacts': Contact,
+        'payment_method': PaymentMethod,
+        'balances': Balance,
+    }
 
 
     @staticmethod

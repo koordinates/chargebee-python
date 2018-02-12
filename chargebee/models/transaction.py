@@ -21,6 +21,12 @@ class Transaction(Model):
     "refunded_txn_id", "reversal_transaction_id", "linked_invoices", "linked_credit_notes", "linked_refunds", \
     "deleted"]
 
+    sub_types = {
+        'linked_invoices': LinkedInvoice,
+        'linked_credit_notes': LinkedCreditNote,
+        'linked_refunds': LinkedRefund,
+    }
+
 
     @staticmethod
     def list(params=None, env=None, headers=None):

@@ -23,3 +23,10 @@ class InvoiceEstimate(Model):
     fields = ["recurring", "price_type", "currency_code", "sub_total", "total", "credits_applied", \
     "amount_paid", "amount_due", "line_items", "discounts", "taxes", "line_item_taxes", "line_item_discounts"]
 
+    sub_types = {
+      'line_items': LineItem,
+      'discounts': Discount,
+      'taxes': Tax,
+      'line_item_taxes': LineItemTax,
+      'line_item_discounts': LineItemDiscount,
+    }
